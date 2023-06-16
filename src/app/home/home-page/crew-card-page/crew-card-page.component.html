@@ -1,0 +1,8 @@
+<!-- <h1 [innerText]="crewId" style="text-align: center"></h1> -->
+<h1>{{getCrewId()}}</h1>
+<ul>
+    <li *ngFor="let item of getDeneme()">
+        {{item.firstName}} - {{item.lastName}} - {{item.nationality}}
+    </li>
+</ul>
+<certificates></certificates>

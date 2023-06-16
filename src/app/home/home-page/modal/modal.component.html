@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Dialog with elements</h1>
+<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
+<div mat-dialog-actions>
+    <certificates [child] = 'modalId'></certificates>
+  <button mat-button mat-dialog-close 
+  (click) = "CloseDialog()"
+  >Close</button>
+  <h1>{{modalId}}</h1>
+  <ul>
+    <li *ngFor="let item of deneme()">
+      {{item.name}}
+    </li>
+  </ul>
+</div>

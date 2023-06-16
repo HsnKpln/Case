@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">{{'firstName' | translate}}</th>
+      <th scope="col">{{'lastName' | translate}}</th>
+      <th scope="col">{{'nationality' | translate}}</th>
+      <th scope="col">{{'title' | translate}}</th>
+      <th scope="col">Edit Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let crew of getCrewList(); let index = index">
+      <th scope="row" [innerText]="index + 1"></th>
+      <td>
+        <a
+          class="btn btn-default"
+          routerLink="./{{ crew.id }}"
+        >
+      {{crew.firstName}}
+      </a>
+      </td>
+      <td [innerText]="crew.lastName"></td>
+      <td [innerText]="crew.nationality"></td>
+      <td [innerText]="crew.title"></td>
+      <td>
+        <button
+          class="btn btn-warning btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#ProductUpdateModel"
+          (click)="openDialog(crew.id,crew.certificates)"
+        >
+          Ürün Güncelle
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<select (change)="selectLanguage($event)">
+  <option value="en-US">{{ 'language.english' | translate }}</option>
+  <option value="fr-FR">{{ 'language.french' | translate }}</option>
+  <option value="pt-PT">{{ 'language.portuguese' | translate }}</option>
+</select>
